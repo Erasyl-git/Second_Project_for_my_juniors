@@ -4,13 +4,6 @@ from projects.models import Project
 
 
 
-
-
-
-
-
-
-
 class Task(models.Model):
 
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
