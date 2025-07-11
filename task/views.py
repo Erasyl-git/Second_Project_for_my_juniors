@@ -27,15 +27,7 @@ class TaskAPIView(APIView):
 
 
 
-    def get (self,request):
-         
-        
-        title = request.data.get("title")
 
-        details = request.data.get("details")
-
-        priority = request.data.get("priority")
-        status = request.data.get("status")
 
 
 
@@ -43,14 +35,18 @@ class TaskAPIView(APIView):
 
     def post(self,request):
 
-        project = Project.objects.crate(title=title,   description=description, is_active=is_active)
 
         title = request.data.get("title")
 
         details = request.data.get("details")
 
         priority = request.data.get("priority")
+
         status = request.data.get("status")
+
+        project = Task.objects.create(title=title, details=details, priority=priority, status=status)
+
+        project.save()
 
     
 
