@@ -7,3 +7,5 @@ urlpatterns = [
     path("api/projects/", include("projects.urls")),
     path("api/tasks/", include("task.urls"))
 ]
+
+
