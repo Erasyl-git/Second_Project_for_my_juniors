@@ -25,8 +25,9 @@ class TaskAPIView(APIView):
          return Response(self.seralizers_class(queryset, many=True).data, status=status.HTTP_200_OK)
     
 
-    def post(self,request):
+    def post(self, request):
 
+        project = request.data.get("project")
 
         title = request.data.get("title")
 
@@ -36,9 +37,14 @@ class TaskAPIView(APIView):
 
         status = request.data.get("status")
 
-        project = Task.objects.create(title=title, details=details, priority=priority, status=status)
+        task = Task.objects.create(project=project, title=title, details=details, priority=priority, status=status)
 
-        project.save()
+        task.save()
+
+
+        return Response({"massege": "success create"})
+
+
 
 
     
