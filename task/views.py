@@ -4,9 +4,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from projects.models import Project
-from .models import Task
+from task.models import Task
 
 from task.serializers import TaskSerializer
+from rest_framework.exceptions import NotFound
    
 
 
